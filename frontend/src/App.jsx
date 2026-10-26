@@ -49,7 +49,14 @@ const Home = () => {
   useEffect(() => {
     const getAnimals = async () => {
       try {
-        const response = await fetch(API + "/dog");
+        const response = await fetch(API + "/dog", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    // This tells localtunnel to completely skip the HTML warning page!
+    "bypass-tunnel-reminder": "true"
+  }
+});
         const data = await response.json();
 
         //console.log(data);
