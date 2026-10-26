@@ -26,7 +26,7 @@ import globalIcon from "./assets/globalIcon.webp";
 const Home = () => {
   const navigate = useNavigate();
 
-  const API = "https://13.61.104.220:5000";
+  const API = "https://orange-warthog-50.loca.lt";
 
   const [animals, setAnimals] = useState([]);
 
