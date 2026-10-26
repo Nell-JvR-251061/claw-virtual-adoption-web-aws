@@ -9,7 +9,7 @@ import SEO from "../components/SEO";
 import "../styling/AnimalProfile.css";
 
 function AnimalProfile() {
-  const API = "https://claw-virtual-adoption-web-production.up.railway.app/api";
+  const API = "http://13.61.104.220:5000";
 
   //---------- Bootstrap Modal Code ----------
   const [show, setShow] = useState(false);

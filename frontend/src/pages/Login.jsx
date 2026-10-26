@@ -14,7 +14,7 @@ import "../styling/Login.css";
 
 function Login() {
   //---------- Server and Navigation References----------
-  const API = "https://claw-virtual-adoption-web-production.up.railway.app/api";
+  const API = "http://13.61.104.220:5000";
   const navigate = useNavigate();
   const { Login } = useAuth();
 

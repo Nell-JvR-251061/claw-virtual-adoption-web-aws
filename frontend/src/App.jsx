@@ -26,7 +26,7 @@ import globalIcon from "./assets/globalIcon.webp";
 const Home = () => {
   const navigate = useNavigate();
 
-  const API = "https://claw-virtual-adoption-web-production.up.railway.app/api";
+  const API = "https://https://13.61.104.220:5000";
 
   const [animals, setAnimals] = useState([]);
 

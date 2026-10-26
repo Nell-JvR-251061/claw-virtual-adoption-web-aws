@@ -7,15 +7,12 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
 const allowedOrigins = [
   'https://claw-virtual-adoption-web.netlify.app',
   'https://claw-virtual-adoption.co.za',
   'https://www.claw-virtual-adoption.co.za',
-  'http://localhost:5173'
+  'http://localhost:5173',
+  'https://main.d27iq5vkliqz0x.amplifyapp.com'
 ];
 
 app.use(cors({
