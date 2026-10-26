@@ -26,7 +26,7 @@ import globalIcon from "./assets/globalIcon.webp";
 const Home = () => {
   const navigate = useNavigate();
 
-  const API = "https://claw-api-cl.duckdns.org";
+  const API = "https://claw-api-cl.duckdns.org/api";
 
   const [animals, setAnimals] = useState([]);
 

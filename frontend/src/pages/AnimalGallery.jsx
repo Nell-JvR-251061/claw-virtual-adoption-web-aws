@@ -9,7 +9,7 @@ import SEO from "../components/SEO";
 import "../styling/AnimalGallery.css";
 
 function AnimalGallery() {
-  const API = "https://claw-api-cl.duckdns.org";
+  const API = "https://claw-api-cl.duckdns.org/api";
 
   const [animals, setAnimals] = useState([]);
 
