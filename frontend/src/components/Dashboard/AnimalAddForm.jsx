@@ -6,7 +6,7 @@ import "../../styling/AnimalAddForm.css";
 
 function AnimalAddFrom({ onVariableChange }) {
   //---------- Server and Navigation References----------
-  const API = "http://13.61.104.220";
+  const API = "https://claw-api-cl.duckdns.org";
   const navigate = useNavigate();
 
   //---------- Bootstrap Modal Code ----------

@@ -14,7 +14,7 @@ import "../styling/Login.css";
 
 function Login() {
   //---------- Server and Navigation References----------
-  const API = "http://13.61.104.220";
+  const API = "https://claw-api-cl.duckdns.org";
   const navigate = useNavigate();
   const { Login } = useAuth();
 
