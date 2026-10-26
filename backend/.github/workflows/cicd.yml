@@ -11,20 +11,28 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
-      - name: Login to docker hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}     
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Build Docker Image
-        run: docker build -t nelljvr/claw-virtual-adoption-web-aws  .
-      - name: Publish Image to docker hub
+        run: docker build -t nelljvr/claw-virtual-adoption-web-aws:latest .
+
+      - name: Publish Image to Docker Hub
         run: docker push nelljvr/claw-virtual-adoption-web-aws:latest 
  
   deploy:
     needs: build
     runs-on: self-hosted 
     steps:
-      - name: Pull image from docker hub
+      - name: Pull image from Docker Hub
         run: docker pull nelljvr/claw-virtual-adoption-web-aws:latest 
-      - name: Delete old container
-        run: docker rm -f claw-virtual-adoption-web-aws-container  
+
+      - name: Delete old container if it exists
+        run: docker rm -f claw-virtual-adoption-web-aws-container || true
+
       - name: Run Docker Container
-        run: docker run -d -p 4000:4000 --name claw-virtual-adoption-web-aws-container -e MONGO_URI='${{ secrets.MONGO_URI }}' nelljvr/claw-virtual-adoption-web-aws
+        run: docker run -d -p 4000:4000 --name claw-virtual-adoption-web-aws-container -e MONGO_URI='${{ secrets.MONGO_URI }}' nelljvr/claw-virtual-adoption-web-aws:latest
