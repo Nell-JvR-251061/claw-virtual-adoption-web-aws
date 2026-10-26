@@ -14,7 +14,7 @@ import "../styling/Login.css";
 
 function Login() {
   //---------- Server and Navigation References----------
-  const API = "https://orange-warthog-50.loca.lt";
+  const API = "http://13.61.104.220";
   const navigate = useNavigate();
   const { Login } = useAuth();
 

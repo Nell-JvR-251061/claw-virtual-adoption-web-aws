@@ -9,22 +9,14 @@ import SEO from "../components/SEO";
 import "../styling/AnimalGallery.css";
 
 function AnimalGallery() {
-  const API = "https://orange-warthog-50.loca.lt";
+  const API = "http://13.61.104.220";
 
   const [animals, setAnimals] = useState([]);
 
   useEffect(() => {
     const getAnimals = async () => {
       try {
-        const response = await fetch(API + "/dog", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    // This tells localtunnel to completely skip the HTML warning page!
-    "bypass-tunnel-reminder": "true"
-  }
-});
-        const data = await response.json();
+        const response = await fetch(API + "/dog");        const data = await response.json();
 
         //console.log(data);
 

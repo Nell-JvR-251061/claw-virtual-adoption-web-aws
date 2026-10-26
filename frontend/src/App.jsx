@@ -26,7 +26,7 @@ import globalIcon from "./assets/globalIcon.webp";
 const Home = () => {
   const navigate = useNavigate();
 
-  const API = "https://orange-warthog-50.loca.lt";
+  const API = "http://13.61.104.220";
 
   const [animals, setAnimals] = useState([]);
 
@@ -49,14 +49,7 @@ const Home = () => {
   useEffect(() => {
     const getAnimals = async () => {
       try {
-        const response = await fetch(API + "/dog", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    // This tells localtunnel to completely skip the HTML warning page!
-    "bypass-tunnel-reminder": "true"
-  }
-});
+        const response = await fetch(API + "/dog");
         const data = await response.json();
 
         //console.log(data);

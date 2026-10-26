@@ -9,7 +9,7 @@ import SEO from "../components/SEO";
 import "../styling/AnimalProfile.css";
 
 function AnimalProfile() {
-  const API = "https://orange-warthog-50.loca.lt";
+  const API = "http://13.61.104.220";
 
   //---------- Bootstrap Modal Code ----------
   const [show, setShow] = useState(false);
