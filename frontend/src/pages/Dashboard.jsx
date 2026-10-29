@@ -14,9 +14,9 @@ import GearIcon from "../assets/gearIcon.svg?react";
 import ExitIcon from "../assets/exitIcon.svg?react";
 
 import AnimalAddFrom from "../components/Dashboard/AnimalAddForm";
-import DashboardMain from "../components/dashboard/DashboardMain";
-import AnimalList from "../components/dashboard/AnimalList";
-import UserList from "../components/dashboard/UserList";
+import DashboardMain from "../components/Dashboard/DashboardMain";
+import AnimalList from "../components/Dashboard/AnimalList";
+import UserList from "../components/Dashboard/UserList";
 
 import "../styling/Dashboard.css";
 
