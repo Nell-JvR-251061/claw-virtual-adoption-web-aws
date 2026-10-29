@@ -143,6 +143,7 @@ const API = "https://claw-api-cl.duckdns.org/api";
           surname: saved.surname,
           email: saved.email,
           id: saved.id,
+          animals: saved.animals ?? []
         },
         saved.token,
       );

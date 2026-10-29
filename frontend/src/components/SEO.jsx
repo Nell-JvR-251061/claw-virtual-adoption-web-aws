@@ -10,7 +10,7 @@ function SEO({ title, description, path = '', image = 'https://claw-virtual-adop
       <title>{`${siteName} | ${title}`}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={fullUrl} />
-      <link rel="alternate" hreflang="en-za" href= 'https://www.claw-virtual-adoption.co.za/'/>
+      <link rel="alternate" hrefLang="en-za" href= 'https://www.claw-virtual-adoption.co.za/'/>
 
       {noIndex ? (<meta name="robots" content="noindex, nofollow" /> ) : (<meta name="robots" content="index, follow"/> )}
       
