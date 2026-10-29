@@ -1,0 +1,21 @@
+@import url("../styling/Main.css");
+
+#animal-profile {
+  background: url("../assets/pawPrintsBow.webp") no-repeat center / cover;
+}
+
+#profile-container {
+  padding: 0 8%;
+  margin-top: 5%;
+}
+
+#animal-profile-image {
+  width: 100%;
+  border-radius: 18px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.profile-quick-info {
+  font-weight: 550;
+}

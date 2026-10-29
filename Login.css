@@ -1,0 +1,84 @@
+@import url("../styling/Main.css");
+
+#login-left {
+  position: relative;
+  display: inline-block;
+}
+
+#login-left #login-left-image {
+  display: block;
+  width: 100%;
+  object-fit: cover; /* Crops the image gracefully to fit exactly 100vh without squishing */
+  object-position: center;
+  -webkit-mask-image: linear-gradient(to right, black, transparent);
+  mask-image: linear-gradient(to right, black, transparent);
+}
+
+#claw-logo-login {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  z-index: 10; /* Ensures this image stays layered on top */
+
+  /* Optional: Adjust size and padding so it doesn't look cut off */
+  width: 20%;
+  height: auto;
+}
+
+#paw-icon {
+  height: var(--fs-50px);
+  width: auto;
+  vertical-align: middle;
+}
+
+label {
+  font-family: var(--font, "Inter", sans-serif);
+  font-size: var(--font-size, 16px);
+  font-weight: var(--font-weight, 700);
+  font-style: normal;
+  color: var(--blue) !important;
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font, "Inter", sans-serif);
+  color: var(--grey) !important;
+  border: 2px solid var(--blue) !important;
+  padding: 12px !important;
+  border-radius: 12px !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 0 0 0.25rem var(--green) !important;
+}
+
+textarea {
+  resize: none;
+}
+
+#pre-change-form-text {
+  font-family: var(--font, "Inter", sans-serif);
+  color: var(--grey);
+}
+
+#change-form-text {
+  font-family: var(--font, "Inter", sans-serif);
+  color: var(--blue);
+}
+
+#change-form-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+@media (max-width: 768px) {
+  #login-right {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+      url("../assets/girlHugDog.webp") no-repeat center / cover;
+  }
+}

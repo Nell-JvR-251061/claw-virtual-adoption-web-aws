@@ -1,0 +1,106 @@
+@import url("../styling/Main.css");
+
+#animal-list-group {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  padding: 0;
+  border-radius: 16px;
+}
+
+.list-headers {
+  font-family: var(--open-sans);
+  font-weight: 700;
+  font-size: var(--fs-16px);
+}
+
+.list-group-item {
+  border: 3px solid var(--blue);
+  background-color: rgb(250, 250, 250, 0.8);
+}
+
+.list-title {
+  font-family: var(--open-sans);
+  font-weight: 700;
+  font-size: var(--fs-20px);
+  color: var(--blue);
+}
+
+.title-item {
+  border-bottom: 0;
+}
+
+.list-link {
+  font-family: var(--inter);
+  font-weight: 400;
+  color: var(--blue);
+}
+
+.red-link:hover{
+    color: red !important;
+    text-decoration: underline !important;
+}
+
+.red-link{
+    color: black;
+}
+
+.list-images {
+  width: 100px;
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+}
+
+.animal-name {
+  font-family: var(--open-sans);
+  font-weight: 700;
+  font-size: var(--fs-18px);
+  color: var(--blue);
+}
+
+.animal-breed {
+  font-size: var(--fs-16px);
+  text-align: start;
+}
+
+.info-text {
+  font-size: 18px;
+}
+
+.list-animal:hover {
+  background-color: rgb(from var(--green) r g b / 50%);
+}
+
+.list-user:hover {
+  background-color: rgb(from var(--green) r g b / 50%);
+  cursor: default;
+}
+
+#group-number-text {
+  font-family: var(--inter);
+  font-weight: 400;
+  color: var(--grey);
+  font-size: var(--fs-16px);
+}
+
+#group-next-button {
+  background-color: var(--blue);
+  border-color: var(--blue);
+  font-family: var(--open-sans);
+}
+
+#group-next-button:hover {
+  background-color: transparent;
+  color: var(--blue);
+}
+
+#group-back-button {
+  background-color: var(--grey);
+  border-color: var(--grey);
+  font-family: var(--open-sans);
+}
+
+#group-back-button:hover {
+  background-color: transparent;
+  color: var(--grey);
+}

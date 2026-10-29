@@ -1,0 +1,64 @@
+.header-image {
+  width: 100%;
+  height: 91.5vh;
+  background: url("./assets/homeImageOne.webp") no-repeat center / cover;
+  -webkit-mask-image: linear-gradient(to left, black, transparent);
+  mask-image: linear-gradient(to left, black, transparent);
+}
+
+.claw-icon-image {
+  height: 100%;
+  width: auto;
+  background: url("./assets/pawIcon.webp") no-repeat center / cover;
+  flex-shrink: 0;
+  min-height: 72px;
+  min-width: 72px;
+}
+
+.post-header-section {
+  background: url("./assets/pawPrints.webp") no-repeat center / cover;
+}
+
+#about-us-container {
+  padding: 0% 25% 0% 25%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(160, 207, 142, 0.5) 100%
+  );
+}
+
+#virtual-adoption-image {
+  background: url("./assets/dogLead.webp") no-repeat center / cover;
+  aspect-ratio: 2/1;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+#more-info-image {
+    /* Combined using the 'background' shorthand */
+    background: url("./assets/clawOldLogo.webp") no-repeat center / cover;
+    
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+}
+
+
+.blue-link:hover{
+    color: var(--blue) !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+.red-link:hover{
+    color: red !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none !important;
+}
+
