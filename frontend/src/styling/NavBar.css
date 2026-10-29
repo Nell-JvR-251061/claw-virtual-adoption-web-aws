@@ -29,6 +29,11 @@
   color: var(--grey) !important;
 }
 
+#nav-link-dashboard:hover{
+  color: var(--blue) !important;
+  background-color: transparent !important;
+}
+
 #logout-link:hover {
   color: red !important;
   background-color: transparent !important;

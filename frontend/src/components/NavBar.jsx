@@ -109,7 +109,20 @@ function NavBar() {
               </Nav.Link>
             ) : (
               <NavDropdown title={user.name} id="basic-nav-dropdown">
-                {user.animals ? (
+                {user.role === "admin" ? (
+                  <NavDropdown.Item
+                    id="nav-link-dashboard"
+                    onClick={() => {
+                      navigate("/Dashboard");
+                    }}
+                  >
+                    Dashboard
+                  </NavDropdown.Item>
+                ) : (
+                  <></>
+                )}
+
+                {user.animals.length > 0 ? (
                   <NavDropdown.Item
                     id="nav-link-animals"
                     onClick={() => {
@@ -123,6 +136,7 @@ function NavBar() {
                 ) : (
                   <></>
                 )}
+
                 <NavDropdown.Item id="logout-link" onClick={LoggingOut}>
                   Log Out
                 </NavDropdown.Item>

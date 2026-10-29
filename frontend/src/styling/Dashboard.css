@@ -8,6 +8,11 @@
   z-index: 5;
 }
 
+#claw-logo-dashboard:hover {
+  cursor: pointer;
+  width: 10%;
+}
+
 .dashboard-icons,
 .dashboard-icons path {
   fill: white !important;
@@ -39,8 +44,8 @@
   background-color: var(--green);
 }
 
-#logout-link:hover {
-  background-color: red;
+#dashboard-logout-link:hover {
+  background-color: red !important;
 }
 
 .menu-option.active {
@@ -62,11 +67,11 @@
 }
 
 #content-container {
-  background: url("../assets/pawPrints.webp") no-repeat center / cover;
+  min-height: 100vh;
+  background: url("../assets/pawPrintsBow.webp") no-repeat center / cover;
   /* background-color: color-mix(in srgb, var(--green) 50%, transparent); */
 }
 
-#add-animal-button{
+#add-animal-button {
   padding: 24px 0px !important;
 }
-

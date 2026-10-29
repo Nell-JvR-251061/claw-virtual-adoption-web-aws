@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Button, Modal } from "react-bootstrap";
+import { Container, Row, Col, Button, Modal, Spinner } from "react-bootstrap";
 
 import NavBar from "./components/NavBar";
 import AnimalCard from "./components/AnimalCard";
@@ -26,7 +26,7 @@ import globalIcon from "./assets/globalIcon.webp";
 const Home = () => {
   const navigate = useNavigate();
 
-  const API = "https://claw-api-cl.duckdns.org/api";
+const API = "https://claw-api-cl.duckdns.org/api";
 
   const [animals, setAnimals] = useState([]);
 
@@ -250,9 +250,13 @@ const Home = () => {
             <div className="container mb-4">
               <div className="row justify-content-center g-3">
                 {!animals ? (
-                  <p>Still waiting...</p>
+                  <div className="w-100 d-flex justify-content-center">
+                    <Spinner animation="border" className="spinner-color" />
+                  </div>
                 ) : animals.length === 0 ? (
-                  <p>No dogs found in the database.</p>
+                  <div className="w-100 d-flex justify-content-center">
+                    <Spinner animation="border" className="spinner-color" />
+                  </div>
                 ) : (
                   [...animals]
                     .sort(() => Math.random() - 0.5)
@@ -363,7 +367,7 @@ const Home = () => {
                 <Col className="mt-3 d-flex align-items-center">
                   <a
                     href="https://clawsa.wixsite.com/claw/projects"
-                    className="var-font "
+                    className="var-font blue-link"
                     style={{
                       "--font": "var(--inter)",
                       "--font-size": "var(--fs-16px)",
@@ -379,7 +383,7 @@ const Home = () => {
                 <Col className="mt-3 d-flex align-items-center">
                   <a
                     href="https://clawsa.wixsite.com/claw/adopt"
-                    className="var-font "
+                    className="var-font blue-link"
                     style={{
                       "--font": "var(--inter)",
                       "--font-size": "var(--fs-16px)",
@@ -395,7 +399,7 @@ const Home = () => {
                 <Col className="mt-3 d-flex align-items-center">
                   <a
                     href="https://ee6feaac-1891-4a07-9689-3ecec25ab214.filesusr.com/ugd/c293f2_23c7e923de0a4da98a9fd8a050142af2.pdf"
-                    className="var-font "
+                    className="var-font blue-link"
                     style={{
                       "--font": "var(--inter)",
                       "--font-size": "var(--fs-16px)",
@@ -411,7 +415,7 @@ const Home = () => {
                 <Col className="mt-3 d-flex align-items-center">
                   <a
                     href="https://clawsa.wixsite.com/claw/donate"
-                    className="var-font "
+                    className="var-font blue-link"
                     style={{
                       "--font": "var(--inter)",
                       "--font-size": "var(--fs-16px)",
@@ -472,7 +476,7 @@ const Home = () => {
                 <Col className="d-flex align-items-center">
                   <a
                     href="mailto:clawsouthafrica@gmail.com"
-                    className="var-font "
+                    className="var-font blue-link"
                     style={{
                       "--font": "var(--inter)",
                       "--font-size": "var(--fs-16px)",
@@ -497,7 +501,7 @@ const Home = () => {
                 <Col className="d-flex align-items-center">
                   <a
                     href="https://clawsa.wixsite.com/claw"
-                    className="var-font "
+                    className="var-font blue-link"
                     style={{
                       "--font": "var(--inter)",
                       "--font-size": "var(--fs-16px)",

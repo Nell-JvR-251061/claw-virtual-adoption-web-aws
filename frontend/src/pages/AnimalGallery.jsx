@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -9,14 +9,15 @@ import SEO from "../components/SEO";
 import "../styling/AnimalGallery.css";
 
 function AnimalGallery() {
-  const API = "https://claw-api-cl.duckdns.org/api";
+const API = "https://claw-api-cl.duckdns.org/api";
 
   const [animals, setAnimals] = useState([]);
 
   useEffect(() => {
     const getAnimals = async () => {
       try {
-        const response = await fetch(API + "/dog");        const data = await response.json();
+        const response = await fetch(API + "/dog");
+        const data = await response.json();
 
         //console.log(data);
 
@@ -89,13 +90,15 @@ function AnimalGallery() {
       <div id="dog-gallery-container" className="py-5">
         {!animals ? (
           <div className="w-100 d-flex justify-content-center">
-            <h1>Their on their way!</h1>
+            <Spinner animation="border" className="spinner-color" />
           </div>
         ) : (
           <Container>
             {animals.filter((animal) => animal.adoptionAvailability === true)
               .length === 0 ? (
-              <p>No available dogs found in the database.</p>
+              <div className="w-100 d-flex justify-content-center">
+                <Spinner animation="border" className="spinner-color" />
+              </div>
             ) : (
               <Row>
                 {animals

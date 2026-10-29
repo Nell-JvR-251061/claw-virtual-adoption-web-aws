@@ -1,7 +1,6 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-export default function SEO({ title, description, path = '', image = 'https://claw-virtual-adoption.co.za/', noIndex = false }) {
+function SEO({ title, description, path = '', image = 'https://claw-virtual-adoption.co.za/', noIndex = false }) {
   const siteName = "CVA";
   const baseUrl = "https://claw-virtual-adoption.co.za/";
   const fullUrl = `${baseUrl}${path}`;
@@ -15,7 +14,6 @@ export default function SEO({ title, description, path = '', image = 'https://cl
 
       {noIndex ? (<meta name="robots" content="noindex, nofollow" /> ) : (<meta name="robots" content="index, follow"/> )}
       
-      <meta property="og:type" content="website" />
       <meta property="og:title" content={`${siteName} | ${title}`} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
@@ -30,3 +28,5 @@ export default function SEO({ title, description, path = '', image = 'https://cl
     </Helmet>
   );
 }
+
+export default SEO;

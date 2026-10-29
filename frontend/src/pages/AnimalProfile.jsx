@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Container, Row, Col, Button, Modal } from "react-bootstrap";
+import { Container, Row, Col, Button, Modal, Spinner } from "react-bootstrap";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -9,7 +9,7 @@ import SEO from "../components/SEO";
 import "../styling/AnimalProfile.css";
 
 function AnimalProfile() {
-  const API = "https://claw-api-cl.duckdns.org/api";
+const API = "https://claw-api-cl.duckdns.org/api";
 
   //---------- Bootstrap Modal Code ----------
   const [show, setShow] = useState(false);
@@ -183,7 +183,7 @@ function AnimalProfile() {
         </Modal.Footer>
       </Modal>
 
-      <div className="d-flex flex-column min-vh-100">
+      <div id="animal-profile" className="d-flex flex-column min-vh-100">
         <nav>
           <NavBar />
         </nav>
@@ -191,189 +191,210 @@ function AnimalProfile() {
         <Container
           fluid
           id="profile-container"
-          className="m-0 my-auto"
+          className=""
           style={{ "font-family": "var(--inter)" }}
         >
-          <Row className="m-0">
-            <Col className="col-3 p-0">
-              <Row className="m-0 mb-3">
-                <h1
-                  className="m-0 p-0"
-                  style={{ "font-weight": "700", "text-align": "center" }}
-                >
-                  {animal.name}
-                </h1>
-              </Row>
-              <Row className="m-0 mb-3" id="animal-profile-image-container">
-                <img
-                  className="p-0"
-                  id="animal-profile-image"
-                  src={animal.image}
-                  alt={`An image of a ${animal.breed} named ${animal.name}`}
-                  onError={(e) => {
-                    console.error("Failed to load image:", e.currentTarget.src);
-                  }}
-                />
-              </Row>
-              <Row className="m-0">
-                <Col className="p-0">
-                  <h3
-                    className="profile-quick-info"
-                    style={{ "text-align": "center" }}
+          {!animal.image ? (
+            <div className="w-100 d-flex justify-content-center">
+              <Spinner animation="border" className="spinner-color" />
+            </div>
+          ) : (
+            <Row className="m-0">
+              <Col className="col-3 p-0">
+                <Row className="m-0 mb-3">
+                  <h1
+                    className="m-0 p-0"
+                    style={{ "font-weight": "700", "text-align": "center" }}
                   >
-                    Status:{" "}
-                    {animal.adoptionAvailability ? (
-                      <span style={{ color: "var(--blue)" }}>Available</span>
-                    ) : isAdoptedByUser ? (
-                      <span style={{ color: "var(--blue)" }}>Yours</span>
-                    ) : (
-                      <span style={{ color: "red" }}>Unavailable</span>
-                    )}
-                  </h3>
-                </Col>
-              </Row>
-            </Col>
-
-            <Col className="d-flex flex-column justify-content-center px-5">
-              <Row className="m-0">
-                <Col className="p-0">
-                  <h5 style={{ "font-weight": "700", color: "var(--blue)" }}>
-                    {animal.name}'s Story
-                  </h5>
-                </Col>
-              </Row>
-              <Row className="m-0">
-                <Col className="p-0">
-                  <p style={{ "font-weight": "400" }}>{animal.about}</p>
-                </Col>
-              </Row>
-
-              <Row className="m-0">
-                <Col className="p-0">
-                  <h5 style={{ "font-weight": "700", color: "var(--blue)" }}>
-                    Personality
-                  </h5>
-                </Col>
-              </Row>
-              <Row className="m-0">
-                <Col className="p-0">
-                  <p style={{ "font-weight": "400" }}>{animal.personality}</p>
-                </Col>
-              </Row>
-
-              <Row className="m-0">
-                <Col className="p-0">
-                  <h5 style={{ "font-weight": "700", color: "var(--blue)" }}>
-                    Information about {animal.name}
-                  </h5>
-                </Col>
-              </Row>
-              <Row className="m-0">
-                <Col className="p-0">
-                  <Row className="m-0 mb-2">
-                    <Col className="p-0">
-                      <h5 style={{ "font-weight": "400" }}>
-                        <span style={{ "font-weight": "700", color: "black:" }}>
-                          Age:
-                        </span>{" "}
-                        {animal.age}
-                      </h5>
-                    </Col>
-                  </Row>
-
-                  <Row className="m-0 mb-2">
-                    <Col className="p-0">
-                      <h5 style={{ "font-weight": "400" }}>
-                        <span style={{ "font-weight": "700", color: "black:" }}>
-                          Gender:
-                        </span>{" "}
-                        {animal.gender}
-                      </h5>
-                    </Col>
-                  </Row>
-
-                  <Row className="m-0 mb-2">
-                    <Col className="p-0">
-                      <h5 style={{ "font-weight": "400" }}>
-                        <span style={{ "font-weight": "700", color: "black:" }}>
-                          Breed:
-                        </span>{" "}
-                        {animal.breed}
-                      </h5>
-                    </Col>
-                  </Row>
-                </Col>
-
-                <Col className="p-0">
-                  <Row className="m-0 mb-2">
-                    <Col className="p-0">
-                      <h5 style={{ "font-weight": "400" }}>
-                        <span style={{ "font-weight": "700", color: "black:" }}>
-                          Size:
-                        </span>{" "}
-                        {animal.size}
-                      </h5>
-                    </Col>
-                  </Row>
-                  <Row className="m-0 mb-2">
-                    <Col className="p-0">
-                      <h5 style={{ "font-weight": "400" }}>
-                        <span style={{ "font-weight": "700", color: "black:" }}>
-                          Energy:
-                        </span>{" "}
-                        {animal.energy}
-                      </h5>
-                    </Col>
-                  </Row>
-                  <Row className="m-0 mb-2">
-                    <Col className="p-0">
-                      <h5 style={{ "font-weight": "400" }}>
-                        <span style={{ "font-weight": "700", color: "black:" }}>
-                          Located:
-                        </span>{" "}
-                        {animal.location}
-                      </h5>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-
-              <Row className="m-0 mb-2">
-                <Col className="p-0">
-                  <h5 style={{ "font-weight": "400" }}>
-                    <span style={{ "font-weight": "700", color: "black:" }}>
-                      Good With:
-                    </span>{" "}
-                    {animal.goodWith && animal.goodWith.join(" | ")}
-                  </h5>
-                </Col>
-              </Row>
-
-              <Row className="m-0 mb-2">
-                <Col className="p-0">
-                  <h5 style={{ "font-weight": "400" }}>
-                    <span style={{ "font-weight": "700", color: "black:" }}>
-                      Difficulty With:
-                    </span>{" "}
-                    {animal.badWith && animal.badWith.join(" | ")}
-                  </h5>
-                </Col>
-              </Row>
-
-              {isAdopted ? (
-                <Row className="d-flex justify-content-end">
-                  <Button
-                    className="button-primary w-25"
-                    onClick={CheckIfAdoptable}
-                  >
-                    Adopt {animal.name}
-                  </Button>
+                    {animal.name}
+                  </h1>
                 </Row>
-              ) : (
-                <></>
-              )}
-            </Col>
-          </Row>
+                <Row className="m-0 mb-3" id="animal-profile-image-container">
+                  <img
+                    className="p-0"
+                    id="animal-profile-image"
+                    src={animal.image}
+                    alt={`An image of a ${animal.breed} named ${animal.name}`}
+                    onError={(e) => {
+                      console.error(
+                        "Failed to load image:",
+                        e.currentTarget.src,
+                      );
+                    }}
+                  />
+                </Row>
+                <Row className="m-0">
+                  <Col className="p-0">
+                    <h3
+                      className="profile-quick-info"
+                      style={{ "text-align": "center" }}
+                    >
+                      Status:{" "}
+                      {animal.adoptionAvailability ? (
+                        <span style={{ color: "var(--blue)" }}>Available</span>
+                      ) : isAdoptedByUser ? (
+                        <span style={{ color: "var(--blue)" }}>Yours</span>
+                      ) : (
+                        <span style={{ color: "red" }}>Unavailable</span>
+                      )}
+                    </h3>
+                  </Col>
+                </Row>
+              </Col>
+
+              <Col className="d-flex flex-column justify-content-center px-5">
+                <Row className="m-0">
+                  <Col className="p-0">
+                    <h5 style={{ "font-weight": "700", color: "var(--blue)" }}>
+                      {animal.name}'s Story
+                    </h5>
+                  </Col>
+                </Row>
+                <Row className="m-0">
+                  <Col className="p-0">
+                    <p style={{ "font-weight": "400" }}>{animal.about}</p>
+                  </Col>
+                </Row>
+
+                <Row className="m-0">
+                  <Col className="p-0">
+                    <h5 style={{ "font-weight": "700", color: "var(--blue)" }}>
+                      Personality
+                    </h5>
+                  </Col>
+                </Row>
+                <Row className="m-0">
+                  <Col className="p-0">
+                    <p style={{ "font-weight": "400" }}>{animal.personality}</p>
+                  </Col>
+                </Row>
+
+                <Row className="m-0">
+                  <Col className="p-0">
+                    <h5 style={{ "font-weight": "700", color: "var(--blue)" }}>
+                      Information about {animal.name}
+                    </h5>
+                  </Col>
+                </Row>
+                <Row className="m-0">
+                  <Col className="p-0">
+                    <Row className="m-0 mb-2">
+                      <Col className="p-0">
+                        <h5 style={{ "font-weight": "400" }}>
+                          <span
+                            style={{ "font-weight": "700", color: "black:" }}
+                          >
+                            Age:
+                          </span>{" "}
+                          {animal.age}
+                        </h5>
+                      </Col>
+                    </Row>
+
+                    <Row className="m-0 mb-2">
+                      <Col className="p-0">
+                        <h5 style={{ "font-weight": "400" }}>
+                          <span
+                            style={{ "font-weight": "700", color: "black:" }}
+                          >
+                            Gender:
+                          </span>{" "}
+                          {animal.gender}
+                        </h5>
+                      </Col>
+                    </Row>
+
+                    <Row className="m-0 mb-2">
+                      <Col className="p-0">
+                        <h5 style={{ "font-weight": "400" }}>
+                          <span
+                            style={{ "font-weight": "700", color: "black:" }}
+                          >
+                            Breed:
+                          </span>{" "}
+                          {animal.breed}
+                        </h5>
+                      </Col>
+                    </Row>
+                  </Col>
+
+                  <Col className="p-0">
+                    <Row className="m-0 mb-2">
+                      <Col className="p-0">
+                        <h5 style={{ "font-weight": "400" }}>
+                          <span
+                            style={{ "font-weight": "700", color: "black:" }}
+                          >
+                            Size:
+                          </span>{" "}
+                          {animal.size}
+                        </h5>
+                      </Col>
+                    </Row>
+                    <Row className="m-0 mb-2">
+                      <Col className="p-0">
+                        <h5 style={{ "font-weight": "400" }}>
+                          <span
+                            style={{ "font-weight": "700", color: "black:" }}
+                          >
+                            Energy:
+                          </span>{" "}
+                          {animal.energy}
+                        </h5>
+                      </Col>
+                    </Row>
+                    <Row className="m-0 mb-2">
+                      <Col className="p-0">
+                        <h5 style={{ "font-weight": "400" }}>
+                          <span
+                            style={{ "font-weight": "700", color: "black:" }}
+                          >
+                            Located:
+                          </span>{" "}
+                          {animal.location}
+                        </h5>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+
+                <Row className="m-0 mb-2">
+                  <Col className="p-0">
+                    <h5 style={{ "font-weight": "400" }}>
+                      <span style={{ "font-weight": "700", color: "black:" }}>
+                        Good With:
+                      </span>{" "}
+                      {animal.goodWith && animal.goodWith.join(" | ")}
+                    </h5>
+                  </Col>
+                </Row>
+
+                <Row className="m-0 mb-2">
+                  <Col className="p-0">
+                    <h5 style={{ "font-weight": "400" }}>
+                      <span style={{ "font-weight": "700", color: "black:" }}>
+                        Difficulty With:
+                      </span>{" "}
+                      {animal.badWith && animal.badWith.join(" | ")}
+                    </h5>
+                  </Col>
+                </Row>
+
+                {isAdopted ? (
+                  <Row className="d-flex justify-content-end">
+                    <Button
+                      className="button-primary w-25"
+                      onClick={CheckIfAdoptable}
+                    >
+                      Adopt {animal.name}
+                    </Button>
+                  </Row>
+                ) : (
+                  <></>
+                )}
+              </Col>
+            </Row>
+          )}
         </Container>
 
         <footer className="mt-auto">

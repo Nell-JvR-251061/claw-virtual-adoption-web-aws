@@ -33,7 +33,7 @@ function AnimalCard({ _animal }) {
                   state: { animalId: _animal._id },
                 });
               }}
-              className="link-to-dog text-end"
+              className="blue-link text-end"
             >
               View Profile
             </a>

@@ -6,7 +6,7 @@ import "../../styling/AnimalAddForm.css";
 
 function AnimalAddFrom({ onVariableChange }) {
   //---------- Server and Navigation References----------
-  const API = "https://claw-api-cl.duckdns.org/api";
+const API = "https://claw-api-cl.duckdns.org/api";
   const navigate = useNavigate();
 
   //---------- Bootstrap Modal Code ----------
@@ -160,7 +160,9 @@ function AnimalAddFrom({ onVariableChange }) {
 
       ClearInputs();
 
-      onVariableChange("Overview");
+      
+      window.location.reload();
+      // onVariableChange("Overview");
     } catch (e) {
       //console.log({ msg: e.message, type: "error" });
       DisplayModal("Error!", e.message, true);

@@ -6,6 +6,17 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const authToken = require('../middleware/middleware');
 
+//Gets all users
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.find({})
+            .select("-password");
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
 // Register (post)
 router.post('/register', async (req, res) => {
     try {
@@ -132,6 +143,21 @@ router.put("/update/:id", authToken, async (req, res) => {
         }
 
         res.status(200).json(userToBeUpdated);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+//Delete a selected user
+router.delete("/delete/:id", authToken, async (req, res) => {
+    try {
+        const userToBeDeleted = await User.findByIdAndDelete(req.params.id);
+
+        if (!userToBeDeleted) {
+            return res.status(404).json({ message: "User not found..." });
+        }
+
+        res.status(200).json({ message: "User deleted successfully." });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

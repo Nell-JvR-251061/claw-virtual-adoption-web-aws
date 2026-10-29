@@ -1,8 +1,12 @@
 @import url("../styling/Main.css");
 
-#profile-container{
-    padding: 0 8%;
-    background: url("../assets/pawPrintsTurn.webp") no-repeat center / cover;
+#animal-profile {
+  background: url("../assets/pawPrintsBow.webp") no-repeat center / cover;
+}
+
+#profile-container {
+  padding: 0 8%;
+  margin-top: 5%;
 }
 
 #animal-profile-image {
@@ -12,6 +16,6 @@
   object-fit: cover;
 }
 
-.profile-quick-info{
-    font-weight: 550;
+.profile-quick-info {
+  font-weight: 550;
 }
