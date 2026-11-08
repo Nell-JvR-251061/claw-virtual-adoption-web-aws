@@ -1,8 +1,8 @@
 # <p align="center">CLAW Virtual Adoption Application</p>
 
-## This repository was used to deploy using AWS Amplify and EC2, linked [here](https://main.d27iq5vkliqz0x.amplifyapp.com).
+## ~~This repository was used to deploy using AWS Amplify and EC2, linked [here](https://main.d27iq5vkliqz0x.amplifyapp.com).~~ <br>(No longer deployed)
 
-### Original Deployed Application [link](https://claw-virtual-adoption.co.za/).
+### ~~Original Deployed Application [link](https://claw-virtual-adoption.co.za/).~~ (No longer deployed)
 
 ### Original Repository [link](https://github.com/Nell-JvR-251061/claw-virtual-adoption-web).
 
